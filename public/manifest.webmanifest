@@ -1,0 +1,18 @@
+{
+  "name": "Budgetly — Plan, Track, Thrive",
+  "short_name": "Budgetly",
+  "description": "Daily planner and expense tracker",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#168b72",
+  "icons": [
+    {
+      "src": "./budgetly-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

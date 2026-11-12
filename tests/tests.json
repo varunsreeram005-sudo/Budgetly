@@ -1,0 +1,92 @@
+[
+  {
+    "name": "First launch requires monthly and yearly limits",
+    "sanity": true,
+    "viewport": "mobile",
+    "covers": [
+      "first-launch budget setup",
+      "monthly spending limit",
+      "yearly spending limit",
+      "persisted onboarding completion"
+    ],
+    "description": "Verifies a first-time user must enter both positive limits before reaching the planner and that setup is remembered.",
+    "steps": [
+      "Clear Budgetly's saved site data",
+      "Open Budgetly",
+      "Enter a monthly limit of 18000 and yearly limit of 200000",
+      "Save limits and continue",
+      "Refresh the app"
+    ],
+    "expected": "The dashboard opens after both limits are saved, and the setup screen does not appear again after refresh."
+  },
+  {
+    "name": "Edit monthly and yearly limits in settings",
+    "viewport": "desktop",
+    "covers": [
+      "monthly budget setting",
+      "yearly budget setting",
+      "budget persistence"
+    ],
+    "description": "Verifies both spending limits can be edited from Settings and persist after reload.",
+    "steps": [
+      "Open Settings",
+      "Set monthly budget to 15000 and yearly budget to 180000",
+      "Close Settings and refresh the app",
+      "Reopen Settings"
+    ],
+    "expected": "The monthly limit shows ₹15,000 and yearly limit shows ₹1,80,000."
+  },
+  {
+    "name": "Add and complete a task",
+    "viewport": "mobile",
+    "covers": [
+      "task creation",
+      "task completion",
+      "local persistence"
+    ],
+    "description": "Verifies a task can be created, completed and remains completed after refresh.",
+    "steps": [
+      "Open Today and add a task named 'Read chapter'",
+      "Mark 'Read chapter' complete",
+      "Refresh the app"
+    ],
+    "expected": "'Read chapter' remains visible with its completed state."
+  },
+  {
+    "name": "Record and filter an expense",
+    "viewport": "mobile",
+    "covers": [
+      "expense creation",
+      "INR amount entry",
+      "category and payment mode",
+      "expense search and filtering",
+      "CSV export",
+      "responsive mobile interaction"
+    ],
+    "description": "Verifies an expense is saved with its category and payment method and can be found in the transaction list on a narrow screen.",
+    "steps": [
+      "Add an expense of 125 in Food with note 'Snack' and payment method UPI",
+      "Open Expenses and search for 'Snack'",
+      "Filter transactions to Food"
+    ],
+    "expected": "The Food transaction Snack appears with ₹125.00 and UPI without horizontal overflow."
+  },
+  {
+    "name": "Reject invalid limits and empty task title",
+    "viewport": "desktop",
+    "covers": [
+      "positive budget validation",
+      "task validation",
+      "invalid-write guardrail"
+    ],
+    "description": "Verifies invalid spending limits and empty task titles are rejected.",
+    "steps": [
+      "On first launch, enter 0 for the monthly limit and 100000 for yearly limit",
+      "Select Save limits and continue",
+      "Enter positive limits and continue",
+      "Open Add task and leave its title empty",
+      "Select Create task"
+    ],
+    "expected": "Invalid limits do not dismiss setup; an empty task title is rejected without adding a blank task."
+  }
+]
